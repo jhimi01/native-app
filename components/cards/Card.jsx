@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   card: {
     width: "49%",
     backgroundColor: "#fff",
-    borderRadius: 15,
+    borderRadius: 8,
     padding: 10,
     marginBottom: 15,
     shadowColor: "#000",
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   addButton: {
     backgroundColor: "#b3806b",
-    borderRadius: 10,
+    borderRadius: 8,
     width: 28,
     height: 28,
     justifyContent: "center",

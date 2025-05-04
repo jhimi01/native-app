@@ -1,5 +1,5 @@
 import { FontAwesome } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,22 +8,20 @@ import {
   View,
   FlatList,
 } from "react-native";
+import itemStore from "../store/itemStore";
 import Card from "../../components/cards/Card";
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
+  const store = itemStore();
+  const { items, fetchData } = store;
 
   useEffect(() => {
-    fetch("https://dummyjson.com/c/89b3-6216-4a35-a001")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products || []))
-      .catch((err) => console.error("failed to fetch"));
+    fetchData();
   }, []);
 
   return (
     <FlatList
       style={styles.container}
-
       ListHeaderComponent={
         <>
           <Text className="italic text-primary" style={styles.header}>
@@ -53,7 +51,7 @@ const HomeScreen = () => {
           </View>
         </>
       }
-      data={products}
+      data={items}
       renderItem={({ item }) => <Card product={item} />}
       keyExtractor={(item) => item.id.toString()}
       numColumns={2}

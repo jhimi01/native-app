@@ -1,5 +1,12 @@
-import { Entypo, FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Entypo,
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { router } from "expo-router";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const ProfileScreen = () => {
   return (
@@ -9,7 +16,7 @@ const ProfileScreen = () => {
           style={styles.image}
           className="rounded-full"
           source={{
-            uri: "https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=",
+            uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
           }}
         />
       </View>
@@ -17,48 +24,68 @@ const ProfileScreen = () => {
       <Text className="text-primary text-sm">jhimitalukder235@gmail.com</Text>
 
       <View className="w-full mt-10 gap-5">
-        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+        <TouchableOpacity
+          onPress={() => router.push("home/profile/info")}
+          className="flex-row justify-between bg-secondary py-5 px-5 w-full rounded-md"
+          style={{ elevation: 4 }}
+        >
           <View className="flex-row items-end gap-3">
             <Ionicons name="person" size={25} color={"#b3806b"} />
-            <Text className="text-2xl text-brown">Edite Profile</Text>
+            <Text className="text-2xl text-brown">Personal Information</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
-        </View>
-        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          className="flex-row justify-between bg-secondary py-5 px-5 w-full rounded-md"
+          style={{ elevation: 4 }}
+        >
           <View className="flex-row items-end gap-3">
-          <MaterialIcons name="payments" size={25} color="#b3806b" />
+            <MaterialIcons name="payments" size={25} color="#b3806b" />
             <Text className="text-2xl text-brown">Payment Method</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
-        </View>
-        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="flex-row justify-between bg-secondary py-5 px-5 w-full rounded-md"
+          style={{ elevation: 4 }}
+        >
           <View className="flex-row items-end gap-3">
-          <Entypo name="language" size={25} color="#b3806b" />
+            <Entypo name="language" size={25} color="#b3806b" />
             <Text className="text-2xl text-brown">Language</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
-        </View>
-        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="flex-row justify-between bg-secondary py-5 px-5 w-full rounded-md"
+          style={{ elevation: 4 }}
+        >
           <View className="flex-row items-end gap-3">
-          <FontAwesome name="history" size={25} color="#b3806b" />
+            <FontAwesome name="history" size={25} color="#b3806b" />
             <Text className="text-2xl text-brown">Order History</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
-        </View>
-        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="flex-row justify-between bg-secondary py-5 px-5 w-full rounded-md"
+          style={{ elevation: 4 }}
+        >
           <View className="flex-row items-end gap-3">
-          <Entypo name="help-with-circle" size={25} color="#b3806b" />
+            <Entypo name="help-with-circle" size={25} color="#b3806b" />
             <Text className="text-2xl text-brown">Order History</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
-        </View>
-        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="flex-row justify-between bg-secondary py-5 px-5 w-full rounded-md"
+          style={{ elevation: 4 }}
+        >
           <View className="flex-row items-end gap-3">
-          <MaterialCommunityIcons name="logout" size={25} color="#b3806b" />
-            <Text className="text-2xl text-brown">Order History</Text>
+            <MaterialCommunityIcons name="logout" size={25} color="#b3806b" />
+            <Text className="text-2xl text-brown">Logout</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

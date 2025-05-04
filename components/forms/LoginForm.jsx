@@ -16,11 +16,23 @@ const LoginForm = () => {
 
   const handleLogin = () => {
     if (!email && !password) {
-      alert("invalid input fields");
+      alert("Please fill in both email and password.");
       return;
     }
 
-    alert(`logged in with ${email}`);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)) {
+      alert("Please enter a valid email address.")
+      return;
+    }
+
+    if(password.length < 6) {
+      alert("Password must be at least 6 charecters.")
+      return
+    }
+
+    alert(`Logged in with ${email}`);
+    router.push('/home')
   };
 
   return (
@@ -28,7 +40,8 @@ const LoginForm = () => {
       <View className="w-full">
         <Text
           style={styles.headingtext}
-          className="text-4xl text-center text-brown py-4" >
+          className="text-4xl text-center text-brown py-4"
+        >
           Welcome back!
         </Text>
         <TextInput
@@ -37,7 +50,7 @@ const LoginForm = () => {
           placeholder="Type your email"
           keyboardType="email-address"
           value={email}
-          onChange={() => setEmail()}
+          onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           className="rounded-md"
@@ -45,7 +58,7 @@ const LoginForm = () => {
           placeholder="Type your password"
           secureTextEntry
           value={password}
-          onChange={() => setPassword()}
+          onChangeText={(text) => setPassword(text)}
         />
       </View>
 
@@ -129,7 +142,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginBottom: 15,
     backgroundColor: "#f5e8d7",
-    fontSize : 18
+    fontSize: 18,
   },
   headingtext: {
     // marginBottom: 10
@@ -137,7 +150,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#f5e8d7",
-    fontSize : 18
+    fontSize: 18,
   },
 });
 

@@ -6,15 +6,15 @@ const EntryScreen = () => {
     <View className="flex flex-1 items-center px-5 justify-between">
       <View className="relative">
         <Image source={require("../../assets/images/coffee.png")} />
-      </View>
-
-      <View className="w-full py-5">
       <Text
-        className="text-3xl my-5 italic capitalize text-center text-brown"
+        className="text-3xl italic capitalize text-center text-brown"
         styles={{ fontFamily: "" }}
       >
         Get the best coffee in Town
       </Text>
+      </View>
+
+      <View className="w-full py-2">
         <View className="flex-row gap-3 mb-3 justify-between">
           <TouchableOpacity
             onPress={() => router.push("/signup")}

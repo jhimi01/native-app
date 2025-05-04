@@ -9,15 +9,35 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { Checkbox, RadioButton } from "react-native-paper";
+import { Checkbox } from "react-native-paper";
 
 const SignupForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState();
   const [password, setPassword] = useState("");
-  const [gender, setGender] = useState("");
   const [agree, setAgree] = useState(false);
+
+  // const router = useRouter()
+
+  const handleRegister = () => {
+    if (!name, !email, !number, !password, !agree) {
+      alert("Fill all the gaps carefully");
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+  
+    if (password.length < 6) {
+      alert("Password must be at least 6 charecters.");
+      return;
+    }
+    router.push('/login')
+    alert('Registered successfully...')
+  };
 
   return (
     <KeyboardAvoidingView style={styles.form}>
@@ -34,7 +54,7 @@ const SignupForm = () => {
           placeholder="Type your name"
           keyboardType="name-phone-pad"
           value={name}
-          onChange={() => setName()}
+          onChangeText={(text) => setName(text)}
         />
         <TextInput
           className="rounded-md"
@@ -42,7 +62,7 @@ const SignupForm = () => {
           placeholder="Type your email"
           keyboardType="email-address"
           value={email}
-          onChange={() => setEmail()}
+          onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           className="rounded-md"
@@ -50,7 +70,7 @@ const SignupForm = () => {
           placeholder="Type your Phone Number"
           keyboardType="number-pad"
           value={number}
-          onChange={() => setNumber()}
+          onChangeText={(text) => setNumber(text)}
         />
         <TextInput
           className="rounded-md"
@@ -58,38 +78,23 @@ const SignupForm = () => {
           placeholder="Type your password"
           secureTextEntry
           value={password}
-          onChange={() => setPassword()}
+          onChangeText={(text) => setPassword(text)}
         />
-
-        {/* gender */}
-        {/* <RadioButton.Group
-          onValueChange={(value) => setGender(value)}
-          value={gender}
-          style={{flexDirection: "row"}}
-        >
-          <RadioButton.Item
-            label="Male"
-            value="male"
-            labelStyle={{ color: "#8B6850" }}
-          />
-          <RadioButton.Item
-            label="Female"
-            value="female"
-            labelStyle={{ color: "#8B6850" }}
-          />
-        </RadioButton.Group> */}
 
         {/* terms & conditions */}
         <Checkbox.Item
           label="I agree with Terms & Conditions"
           status={agree ? "checked" : "unchecked"}
           onPress={() => setAgree(!agree)}
-          labelStyle={{ color: "#8B6850"}}
+          labelStyle={{ color: "#8B6850" }}
         />
       </View>
       <View>
         <View className="w-full">
-          <TouchableOpacity className="w-full rounded-md bg-primary text-center py-4  items-center justify-center">
+          <TouchableOpacity
+            onPress={handleRegister}
+            className="w-full rounded-md bg-primary text-center py-4  items-center justify-center"
+          >
             <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
         </View>
