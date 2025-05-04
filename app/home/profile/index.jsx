@@ -1,0 +1,80 @@
+import { Entypo, FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { Image, StyleSheet, Text, View } from "react-native";
+
+const ProfileScreen = () => {
+  return (
+    <View style={styles.container}>
+      <View className="border rounded-full border-primary">
+        <Image
+          style={styles.image}
+          className="rounded-full"
+          source={{
+            uri: "https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=",
+          }}
+        />
+      </View>
+      <Text className="text-5xl font-bold text-brown">Jhimi Talukder</Text>
+      <Text className="text-primary text-sm">jhimitalukder235@gmail.com</Text>
+
+      <View className="w-full mt-10 gap-5">
+        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+          <View className="flex-row items-end gap-3">
+            <Ionicons name="person" size={25} color={"#b3806b"} />
+            <Text className="text-2xl text-brown">Edite Profile</Text>
+          </View>
+          <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
+        </View>
+        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+          <View className="flex-row items-end gap-3">
+          <MaterialIcons name="payments" size={25} color="#b3806b" />
+            <Text className="text-2xl text-brown">Payment Method</Text>
+          </View>
+          <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
+        </View>
+        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+          <View className="flex-row items-end gap-3">
+          <Entypo name="language" size={25} color="#b3806b" />
+            <Text className="text-2xl text-brown">Language</Text>
+          </View>
+          <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
+        </View>
+        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+          <View className="flex-row items-end gap-3">
+          <FontAwesome name="history" size={25} color="#b3806b" />
+            <Text className="text-2xl text-brown">Order History</Text>
+          </View>
+          <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
+        </View>
+        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+          <View className="flex-row items-end gap-3">
+          <Entypo name="help-with-circle" size={25} color="#b3806b" />
+            <Text className="text-2xl text-brown">Order History</Text>
+          </View>
+          <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
+        </View>
+        <View className="flex-row justify-between bg-secondary py-5 px-5 w-full">
+          <View className="flex-row items-end gap-3">
+          <MaterialCommunityIcons name="logout" size={25} color="#b3806b" />
+            <Text className="text-2xl text-brown">Order History</Text>
+          </View>
+          <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 15,
+    paddingVertical: 30,
+    alignItems: "center",
+    gap: 8,
+  },
+  image: {
+    width: 150,
+    height: 150,
+  },
+});
+
+export default ProfileScreen;
