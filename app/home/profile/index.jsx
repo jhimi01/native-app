@@ -72,7 +72,7 @@ const ProfileScreen = () => {
         >
           <View className="flex-row items-end gap-3">
             <Entypo name="help-with-circle" size={25} color="#b3806b" />
-            <Text className="text-2xl text-brown">Order History</Text>
+            <Text className="text-2xl text-brown">Help Center</Text>
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} color="#b3806b" />
         </TouchableOpacity>
