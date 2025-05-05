@@ -13,6 +13,7 @@ import { Checkbox } from "react-native-paper";
 
 const SignupForm = () => {
   const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState();
   const [password, setPassword] = useState("");
@@ -55,6 +56,14 @@ const SignupForm = () => {
           keyboardType="name-phone-pad"
           value={name}
           onChangeText={(text) => setName(text)}
+        />
+        <TextInput
+          className="rounded-md"
+          style={styles.input}
+          placeholder="Type your username"
+          keyboardType="name-phone-pad"
+          value={username}
+          onChangeText={(text) => setUserName(text)}
         />
         <TextInput
           className="rounded-md"

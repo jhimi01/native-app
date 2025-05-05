@@ -19,12 +19,23 @@ const Card = ({ product }) => {
 
       <View style={styles.footer}>
         <Text style={styles.price}>${product.price}</Text>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => router.push(`home/items/${product.id}`)}
-        >
-          <Text style={styles.addText}>+</Text>
-        </TouchableOpacity>
+        <View className="flex-row gap-3">
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => router.push(`home/items/${product.id}`)}
+          >
+            <Text style={styles.addText}>
+              <FontAwesome name="cart-plus" size={20} color="#f5e8d7" />
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => router.push(`home/items/${product.id}`)}
+          >
+            <Text style={styles.addText}>+</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

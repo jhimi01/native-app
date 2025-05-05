@@ -96,7 +96,7 @@ const Info = () => {
         className="bg-secondary py-5 px-5 rounded-md justify-between items-center flex-row"
       >
         <Text style={styles.value} className="text-2xl text-primary">
-          +91 6985312
+          +880 1234567890
         </Text>
         <Ionicons name="pencil-outline" size={20} color="#333" />
       </View>
